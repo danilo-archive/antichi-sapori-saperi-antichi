@@ -1,35 +1,17 @@
 package game;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.DisplayMode;
-import java.awt.Font;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.Point;
-import java.awt.Toolkit;
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
-
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.JToggleButton;
-import javax.swing.SwingConstants;
-import javax.swing.Timer;
 
 
 public class MainFrame
@@ -79,7 +61,7 @@ public class MainFrame
     
     boolean first;	//to choose the first player
     
-    String[] citt‡=new String[28];//an array with the name of every city
+    String[] citt√†=new String[28];//an array with the name of every city
     
     BufferedImage liceo=null;
     BufferedImage imgTabellone = null;	
@@ -678,7 +660,7 @@ public class MainFrame
 		background.setBounds(0,0,64*8,64*6);
 		popupPane.add(background, JLayeredPane.DEFAULT_LAYER);//background
 		
-		JLabel text=new JLabel("<html><p align=center><font size=4>Verr‡ lanciata una moneta per scoprire chi muove per primo.</font><br>"+name1+"= Testa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "+name2+"= Croce"+"</p></html>", SwingConstants.CENTER);
+		JLabel text=new JLabel("<html><p align=center><font size=4>Verr√† lanciata una moneta per scoprire chi muove per primo.</font><br>"+name1+"= Testa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "+name2+"= Croce"+"</p></html>", SwingConstants.CENTER);
         text.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		text.setBounds(64,(64*4), 64*6,64);
 		popupPane.add(text, JLayeredPane.PALETTE_LAYER);//text
@@ -1075,7 +1057,7 @@ public class MainFrame
 		popupPane.setBounds((64*4)+32,(64*3)+32,64*7,64*2);
 		popupPane.setLayout(null);//create frame
 		
-		JLabel ilTurno1=new JLabel(name1+", ora Ë il tuo turno",SwingConstants.CENTER);
+		JLabel ilTurno1=new JLabel(name1+", ora √† il tuo turno",SwingConstants.CENTER);
 		ilTurno1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		ilTurno1.setBounds(0,0,64*7,64+32);
 		popupPane.add(ilTurno1,JLayeredPane.PALETTE_LAYER);//text
@@ -1137,7 +1119,7 @@ public class MainFrame
 		popupPane.setBounds((64*4)+32,(64*3)+32,64*7,64*2);
 		popupPane.setLayout(null);//create frame
 		
-		JLabel ilTurno2=new JLabel(name2+", ora Ë il tuo turno",SwingConstants.CENTER);
+		JLabel ilTurno2=new JLabel(name2+", ora √† il tuo turno",SwingConstants.CENTER);
 		ilTurno2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		ilTurno2.setBounds(0,0,64*7,64+32);
 		popupPane.add(ilTurno2,JLayeredPane.PALETTE_LAYER);//text
@@ -1207,12 +1189,12 @@ public class MainFrame
 				popupPane.setLayout(null);
 		        mainPane.add(popupPane,JLayeredPane.POPUP_LAYER);
 				
-				JLabel text=new JLabel("<html><p align=center>"+name1+", Ë uscito il numero "+dado+",<br> quindi ora andrai sulla casella n."+ posgioc1+"</p></html>",SwingConstants.CENTER);
+				JLabel text=new JLabel("<html><p align=center>"+name1+", √† uscito il numero "+dado+",<br> quindi ora andrai sulla casella n."+ posgioc1+"</p></html>",SwingConstants.CENTER);
 				text.setFont(new Font("Tahoma", Font.PLAIN, 22));
 				text.setBounds(32,32,64*6,(64*2)+32);
 				popupPane.add(text,JLayeredPane.PALETTE_LAYER);//
 				
-				JButton vai=new JButton("Vai "+citt‡[posgioc1]);
+				JButton vai=new JButton("Vai "+citt√†[posgioc1]);
 				vai.setBounds(64,(64*3)+32,64*5,64);
 				popupPane.add(vai,JLayeredPane.PALETTE_LAYER);
 				
@@ -1312,12 +1294,12 @@ public class MainFrame
 				popupPane.setLayout(null);
 		        mainPane.add(popupPane,JLayeredPane.POPUP_LAYER);
 				
-				JLabel text=new JLabel("<html><p align=center>"+name2+", Ë uscito il numero "+dado+",<br> quindi ora andrai sulla casella n."+ posgioc2+"</p></html>",SwingConstants.CENTER);
+				JLabel text=new JLabel("<html><p align=center>"+name2+", √† uscito il numero "+dado+",<br> quindi ora andrai sulla casella n."+ posgioc2+"</p></html>",SwingConstants.CENTER);
 				text.setFont(new Font("Tahoma", Font.PLAIN, 22));
 				text.setBounds(32,32,64*6,(64*2)+32);
 				popupPane.add(text,JLayeredPane.PALETTE_LAYER);//
 				
-				JButton vai=new JButton("Vai "+citt‡[posgioc2]);
+				JButton vai=new JButton("Vai "+citt√†[posgioc2]);
 				vai.setBounds(64,(64*3)+32,64*5,64);
 				popupPane.add(vai,JLayeredPane.PALETTE_LAYER);
 				
@@ -1414,8 +1396,8 @@ public class MainFrame
 		dietro.setBounds(0,0,64*7,64*5);
 		popupPane.add(dietro, JLayeredPane.DEFAULT_LAYER);
 		
-		JLabel text=new JLabel(name1+", sei arrivato "+citt‡[posgioc1],SwingConstants.CENTER);
-		if(portrait1==1)text.setText(name1+", sei arrivata "+citt‡[posgioc1]);
+		JLabel text=new JLabel(name1+", sei arrivato "+citt√†[posgioc1],SwingConstants.CENTER);
+		if(portrait1==1)text.setText(name1+", sei arrivata "+citt√†[posgioc1]);
 		text.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		text.setBounds(0,0,64*7,32);
 		popupPane.add(text,JLayeredPane.PALETTE_LAYER);// text join in a city(look the array in the bottom of the code)(to adjust)
@@ -1490,8 +1472,8 @@ public class MainFrame
 		dietro.setBounds(0,0,64*7,64*5);
 		popupPane.add(dietro, JLayeredPane.DEFAULT_LAYER);
 		
-		JLabel text=new JLabel(name2+", sei arrivato "+citt‡[posgioc2],SwingConstants.CENTER);
-		if(portrait2==1)text.setText(name2+", sei arrivata "+citt‡[posgioc2]);
+		JLabel text=new JLabel(name2+", sei arrivato "+citt√†[posgioc2],SwingConstants.CENTER);
+		if(portrait2==1)text.setText(name2+", sei arrivata "+citt√†[posgioc2]);
 		text.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		text.setBounds(0,0,64*7,32);
 		popupPane.add(text,JLayeredPane.PALETTE_LAYER);// text join in a city(look the array in the bottom of the code)(to adjust)
@@ -1940,7 +1922,7 @@ public class MainFrame
     		    	pedGioc1.setLocation(idPuntiPlayer1.get(posgioc1-dado));
     		    	billboard.updateUI();
     		    	
-    		    	textDomanda.setText("<html><p align=center>Mi dispiace, "+name1+",hai esaurito il tempo per rispondere alla domanda, dovrai tornare "+citt‡[posgioc1-dado]+"</p></html>");
+    		    	textDomanda.setText("<html><p align=center>Mi dispiace, "+name1+",hai esaurito il tempo per rispondere alla domanda, dovrai tornare "+citt√†[posgioc1-dado]+"</p></html>");
     		    	textDomanda.setFont(new Font("Tahoma", Font.PLAIN, 16));
     				popupPane.add(textDomanda,JLayeredPane.PALETTE_LAYER);
     				
@@ -2110,7 +2092,7 @@ public class MainFrame
 		    	pedGioc1.setLocation(idPuntiPlayer1.get(posgioc1-dado));
 		    	billboard.updateUI();
 		    	
-		    	textDomanda.setText("<html><p align=center>Mi dispiace, "+name1+",non hai risposto correttamente, dovrai tornare "+citt‡[posgioc1-dado]+"</p></html>");
+		    	textDomanda.setText("<html><p align=center>Mi dispiace, "+name1+",non hai risposto correttamente, dovrai tornare "+citt√†[posgioc1-dado]+"</p></html>");
 		    	textDomanda.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				popupPane.add(textDomanda,JLayeredPane.PALETTE_LAYER);
 				
@@ -2140,7 +2122,7 @@ public class MainFrame
 		    	pedGioc1.setLocation(idPuntiPlayer1.get(posgioc1-dado));
 		    	billboard.updateUI();
 		    	
-		    	textDomanda.setText("<html><p align=center>Mi dispiace, "+name1+",non hai risposto correttamente, dovrai tornare "+citt‡[posgioc1-dado]+"</p></html>");
+		    	textDomanda.setText("<html><p align=center>Mi dispiace, "+name1+",non hai risposto correttamente, dovrai tornare "+citt√†[posgioc1-dado]+"</p></html>");
 		    	textDomanda.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				popupPane.add(textDomanda,JLayeredPane.PALETTE_LAYER);
 				
@@ -2215,7 +2197,7 @@ public class MainFrame
     		    	pedGioc2.setLocation(idPuntiPlayer2.get(posgioc2-dado));
     		    	billboard.updateUI();
     		    	
-    		    	textDomanda.setText("<html><p align=center>Mi dispiace, "+name2+",hai esaurito il tempo per rispondere alla domanda, dovrai tornare "+citt‡[posgioc2-dado]+"</p></html>");
+    		    	textDomanda.setText("<html><p align=center>Mi dispiace, "+name2+",hai esaurito il tempo per rispondere alla domanda, dovrai tornare "+citt√†[posgioc2-dado]+"</p></html>");
     		    	textDomanda.setFont(new Font("Tahoma", Font.PLAIN, 16));
     				popupPane.add(textDomanda,JLayeredPane.PALETTE_LAYER);
     				
@@ -2386,7 +2368,7 @@ public class MainFrame
 		    	pedGioc2.setLocation(idPuntiPlayer2.get(posgioc2-dado));
 		    	billboard.updateUI();
 		    	
-		    	textDomanda.setText("<html><p align=center>Mi dispiace, "+name2+",non hai risposto correttamente, dovrai tornare a "+citt‡[posgioc2-dado]+"</p></html>");
+		    	textDomanda.setText("<html><p align=center>Mi dispiace, "+name2+",non hai risposto correttamente, dovrai tornare a "+citt√†[posgioc2-dado]+"</p></html>");
 		    	textDomanda.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				popupPane.add(textDomanda,JLayeredPane.PALETTE_LAYER);
 				
@@ -2417,7 +2399,7 @@ public class MainFrame
 		    	pedGioc2.setLocation(idPuntiPlayer2.get(posgioc2-dado));
 		    	billboard.updateUI();
 		    	
-		    	textDomanda.setText("<html><p align=center>Mi dispiace, "+name2+",non hai risposto correttamente, dovrai tornare a "+citt‡[posgioc2-dado]+"</p></html>");
+		    	textDomanda.setText("<html><p align=center>Mi dispiace, "+name2+",non hai risposto correttamente, dovrai tornare a "+citt√†[posgioc2-dado]+"</p></html>");
 		    	textDomanda.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				popupPane.add(textDomanda,JLayeredPane.PALETTE_LAYER);
 				
@@ -2544,33 +2526,33 @@ public class MainFrame
 	
 	public void setNomiCitta()
 	{
-		this.citt‡[0]="al Liceo Scientifico A.Romit‡";
-		this.citt‡[1]="al Lago di Occhito";
-		this.citt‡[2]="a Pietrabbondante";
-		this.citt‡[3]="ad Agnone";
-		this.citt‡[4]="sulla casella Libeccio";
-		this.citt‡[5]="a Venafro";
-		this.citt‡[6]="a Ripalimosani";
-		this.citt‡[7]="sulla casella Tratturo";
-		this.citt‡[8]="alla Riserva MAB";
-		this.citt‡[9]="a Riccia";
-		this.citt‡[10]="sulla casella Maestrale";
-		this.citt‡[11]="a Casellino del Biferno";
-		this.citt‡[12]="a Sepino";
-		this.citt‡[13]="a Vinchiaturo";
-		this.citt‡[14]="sulla casella Tartufo";
-		this.citt‡[15]="a Campobasso";
-		this.citt‡[16]="a Termoli";
-		this.citt‡[17]="a Castelmauro";
-		this.citt‡[18]="sulla casella Bora";
-		this.citt‡[19]="ad Oratino";
-		this.citt‡[20]="a Isernia";
-		this.citt‡[21]="sulla casella della Tintilia";
-		this.citt‡[22]="a Baranello";
-		this.citt‡[23]="al Parco Nazionale d'Abruzzo, Lazio e Molise";
-		this.citt‡[24]="sulla casella Sirocco";
-		this.citt‡[25]="a Limosano";
-		this.citt‡[26]="a Torella del Sannio";
-		this.citt‡[27]="sulla casella d'arrivo!";
+		this.citt√†[0]="al Liceo Scientifico A.Romit√†";
+		this.citt√†[1]="al Lago di Occhito";
+		this.citt√†[2]="a Pietrabbondante";
+		this.citt√†[3]="ad Agnone";
+		this.citt√†[4]="sulla casella Libeccio";
+		this.citt√†[5]="a Venafro";
+		this.citt√†[6]="a Ripalimosani";
+		this.citt√†[7]="sulla casella Tratturo";
+		this.citt√†[8]="alla Riserva MAB";
+		this.citt√†[9]="a Riccia";
+		this.citt√†[10]="sulla casella Maestrale";
+		this.citt√†[11]="a Casellino del Biferno";
+		this.citt√†[12]="a Sepino";
+		this.citt√†[13]="a Vinchiaturo";
+		this.citt√†[14]="sulla casella Tartufo";
+		this.citt√†[15]="a Campobasso";
+		this.citt√†[16]="a Termoli";
+		this.citt√†[17]="a Castelmauro";
+		this.citt√†[18]="sulla casella Bora";
+		this.citt√†[19]="ad Oratino";
+		this.citt√†[20]="a Isernia";
+		this.citt√†[21]="sulla casella della Tintilia";
+		this.citt√†[22]="a Baranello";
+		this.citt√†[23]="al Parco Nazionale d'Abruzzo, Lazio e Molise";
+		this.citt√†[24]="sulla casella Sirocco";
+		this.citt√†[25]="a Limosano";
+		this.citt√†[26]="a Torella del Sannio";
+		this.citt√†[27]="sulla casella d'arrivo!";
 	}
 }
